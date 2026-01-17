@@ -2,6 +2,9 @@ import requests
 import json
 
 def emotion_detector(text_to_analyse):
+    """ use watson API to analyse emotion of text """
+    """ test """
+
     URL = "https://sn-watson-emotion.labs.skills.network/v1/watson.runtime.nlp.v1/NlpService/EmotionPredict"
     
     headers = {
