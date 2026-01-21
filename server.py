@@ -10,11 +10,7 @@ def home():
 
 @app.route('/emotionDetector',methods=['POST'])
 def emotionDetector():
-    data = request.get_json()
-    if not data or 'text' not in data:
-        return jsonify({"error": "Please provide a 'text' field in JSON"}), 400
-
-    text_to_analyse = data['text']
+    text_to_analyze = request.args.get("textToAnalyze", "")
     result = emotion_detector(text_to_analyze)
 
     formatted_response = (
