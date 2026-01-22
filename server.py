@@ -8,7 +8,7 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/emotionDetector',methods=['POST'])
+@app.route('/emotionDetector',methods=['GET'])
 def emotionDetector():
     text_to_analyze = request.args.get("textToAnalyze", "")
     result = emotion_detector(text_to_analyze)
