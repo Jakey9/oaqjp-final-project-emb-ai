@@ -12,23 +12,24 @@ def emotion_detector(text_to_analyse):
 
     response = requests.post(url, headers=headers, json=payload)
 
-    # # Check for 400 Bad Request (invalid or empty)
-    # if response.status_code == 400:
-    #     return {
-    #         'anger': None,
-    #         'disgust': None,
-    #         'fear': None,
-    #         'joy': None,
-    #         'sadness': None,
-    #         'dominant_emotion': None
-    # }
+    # Check for 400 Bad Request (invalid or empty)
+    if response.status_code == 400:
+        return {
+            'anger': None,
+            'disgust': None,
+            'fear': None,
+            'joy': None,
+            'sadness': None,
+            'dominant_emotion': None
+    }
 
     result_dict = json.loads(response.text)
     emotions = result_dict["emotionPredictions"][0]["emotion"]
     dominant_emotion = max(emotions, key=emotions.get)
 
     # Prepare final dictionary
-    output = {
+    output = 
+    {
         "anger": emotions.get("anger", 0),
         "disgust": emotions.get("disgust", 0),
         "fear": emotions.get("fear", 0),
